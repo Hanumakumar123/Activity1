@@ -19,7 +19,7 @@ ifdef OS	# All configurations for Windwos OS
    AVR_OBJ_CPY = avr-objcopy.exe
 
 #Options for HEX file generation
-HFLAGS = -j .text -j .data -O ihex
+HFLAGS = -j .text -j .data -O ihexcpp
 
 else #All configurations for Linux OS
    ifeq ($(shell uname), Linux)
