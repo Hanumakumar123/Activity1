@@ -25,7 +25,9 @@ int main(void)
    * 
    */
 
- DDRB|=(1<<PB0); //Set B0=1 for led
+ DDRB|=(1<<PB0); 
+
+ 
  DDRD &=~(1<<PD0); // clear bit 0 of DDR D
  PORTD |=(1<<PD0); //set bit 0 of PORT D
  DDRD &=~(1<<PD1); // clear bit 1 of DDR D
