@@ -1,9 +1,9 @@
-PROJ_NAME = Blinky
+PROJ_NAME = Activity1
 
 BUILD_DIR = Build
 
 # All Source code files
-SRC = main.c
+SRC = Activity1_main.c
 #src/user_utils.c
 
 # All header file paths
