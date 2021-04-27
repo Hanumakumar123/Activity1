@@ -1,10 +1,10 @@
-PROJ_NAME = Blinky
+PROJ_NAME = Activity1
 
 BUILD_DIR = Build
 
 # All Source code files
-SRC = project_main.c\
-src/user_utils.c
+SRC = Activity1_main.c
+#src/user_utils.c
 
 # All header file paths
 INC = -I inc
@@ -17,6 +17,10 @@ ifdef OS	# All configurations for Windwos OS
    CC = avr-gcc.exe
 # Name of the elf to hex file converter used
    AVR_OBJ_CPY = avr-objcopy.exe
+
+#Options for HEX file generation
+HFLAGS = -j .text -j .data -O ihexcpp
+
 else #All configurations for Linux OS
    ifeq ($(shell uname), Linux)
 # Correct the path based on OS
@@ -33,7 +37,11 @@ endif
 
 all:$(BUILD_DIR)
 # Compile the code and generate the ELF file
-	$(CC) -g -Wall -Os -mmcu=atmega328  $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+	$(CC) -g -Wall -Os -mmcu=atmega328 -DF_CPU=16000000UL $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+
+hex: $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+	#create hex file
+	$(AVR_OBJ_CPY) $(HFLAGS) $< $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).hex)
 
 $(BUILD_DIR):
 # Create directory to store the built files
