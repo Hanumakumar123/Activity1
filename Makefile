@@ -3,7 +3,7 @@ PROJ_NAME = Activity1
 BUILD_DIR = Build
 
 # All Source code files
-SRC = Activity1_main.c
+SRC = Activity_main.c
 #src/user_utils.c
 
 # All header file paths
