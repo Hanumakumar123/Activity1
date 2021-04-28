@@ -19,35 +19,33 @@
  */
 int main(void)
 {
+  Button_led_Init();
+  init_ADC;
+  unit16_ temp;
 
-  /**
-   * @brief Main Code
-   * 
-   */
-
- DDRB|=(1<<PB0); //Set B0=1 for led
- DDRD &=~(1<<PD0); // clear bit 0 of DDR D
- PORTD |=(1<<PD0); //set bit 0 of PORT D
- DDRD &=~(1<<PD1); // clear bit 1 of DDR D
- PORTD |=(1<<PD1); //set bit 1 of PORT D
+ /**
+     * @brief Infinite loop to run the microcontroller
+     * 
+     */
  while(1)
     {
-      if(!(PIND&(1<<PD0))) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
+      if(button_sensor_on))) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
 
-       if((!PIND&(1<<PD1))) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
+       if((Heater_on))) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
       {
-        PORTB|=(1<<PB0);//make 0th bit of port B as 1, makes led glow
+         set_led;//make 0th bit of port B as 1, makes led glow
+         temp=Read_ADC(0);
         _delay_ms(1000); // delay 
       }
         else
       {
-          PORTB&=~(1<<PB0); // make led off
+        set_led; // make led off
          _delay_ms(1000);
       }
 
       else
       {
-        PORTB&=~(1<<PB0); // Make led off
+        set_led_off // Make led off
         _delay_ms(1000);
 
       }
