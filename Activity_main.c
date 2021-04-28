@@ -29,9 +29,9 @@ int main(void)
      */
  while(1)
     {
-      if(button_sensor_on))) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
+      if(button_sensor_on) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
 
-       if((Heater_on))) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
+       if(Heater_on) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
       {
          set_led;//make 0th bit of port B as 1, makes led glow
          temp=Read_ADC(0);
@@ -39,13 +39,13 @@ int main(void)
       }
         else
       {
-        set_led; // make led off
+          Clear_led; // make led off
          _delay_ms(1000);
       }
 
       else
       {
-        set_led_off // Make led off
+         Clear_led// Make led off
         _delay_ms(1000);
 
       }
