@@ -1,5 +1,5 @@
 /**
- * @file main.c
+ * @file  Activity_main.c
  * @author HanumaKumar G ()
  * @brief 
  * @version 0.1
@@ -31,7 +31,11 @@ int main(void)
     {
       if(button_sensor_on) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
 
+<<<<<<< HEAD
        if((Heater_on)// Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
+=======
+       if(Heater_on) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
+>>>>>>> 317801bfb7fe49d5a1fe0e89911b4201c7943c54
       {
          set_led;//make 0th bit of port B as 1, makes led glow
          temp=Read_ADC(0);
@@ -39,13 +43,21 @@ int main(void)
       }
         else
       {
+<<<<<<< HEAD
           clear_led; // make led off
+=======
+          Clear_led; // make led off
+>>>>>>> 317801bfb7fe49d5a1fe0e89911b4201c7943c54
          _delay_ms(1000);
       }
 
       else
       {
+<<<<<<< HEAD
          clear_led// Make led off
+=======
+         Clear_led// Make led off
+>>>>>>> 317801bfb7fe49d5a1fe0e89911b4201c7943c54
         _delay_ms(1000);
 
       }
