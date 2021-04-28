@@ -1,5 +1,5 @@
 /**
- * @file main.c
+ * @file  Activity_main.c
  * @author HanumaKumar G ()
  * @brief 
  * @version 0.1
