@@ -29,13 +29,11 @@ void InitADC()
  * @param ch 
  * @return uint16_t 
  */
-uint16_t Read_ADC(uint8_t ch)
+uint16_t ReadADC(uint8_t ch)
 {
-    //select ADC channel Ch must be 0-7
     ADMUX&=0xf8;
     ch=ch&0b00000111;
     ADMUX|=ch;
-    //start single conversion
     ADCSRA|=(1<<ADSC);
     while(!(ADCSRA&(1<<ADIF)));ADCSRA|=(1<<ADIF);
     return(ADC);
