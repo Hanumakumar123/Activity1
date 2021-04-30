@@ -14,7 +14,7 @@
 
 
 /**
- * @brief A function to initialise the analog to digital converter
+ * @brief A function to initialise the Convertor from analog to
  * 
  */
 void InitADC()
@@ -24,7 +24,7 @@ void InitADC()
 }
 
 /**
- * @brief A funciton to receive temperature sensor inputs from analog pin and output it to a register ADC which has 2 8 bit registers ADCL and ADCH.
+ * @brief This is the function to receive the inputs from temperature sensor from analog pin and output it to a register ADC which has two  8 bit registers ADCL and ADCH.
  * 
  * @param ch 
  * @return uint16_t 
