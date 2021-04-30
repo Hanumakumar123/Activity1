@@ -47,7 +47,7 @@ return UDR0;
  * 
  * @param data 
  */
-void UARTwritecharacter(char data){
+void UARTwritechar(int data){
 
  while(!(UCSR0A &(1<<UDRE0))){
 
