@@ -1,6 +1,6 @@
 /**
  * @file Activity1.h
- * @author Hanuma Kumar G(you@domain.com)
+ * @author Hanuma Kumar G()
  * @brief 
  * @version 0.1
  * @date 2021-04-28
