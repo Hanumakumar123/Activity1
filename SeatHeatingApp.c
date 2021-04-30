@@ -10,49 +10,57 @@
  */
 
 
-#include <avr/io.h>
-#include<util/delay.h>
-/**
- * @brief By using the button sensor turn on the heater sensor that turn on heater sensor shows by LED
- * 
- * @return int 
- */
 int main(void)
 {
-  BUTTON_LED_Iint();
-  Init_ADC;
-  unit16_ temp;
+  /**
+   * @brief A function to intialize the Timers and channels and setting prescaler value
+   * 
+   */
+    TCCR0A|=(1<<COM0A1)|(1<<WGM01)|(1<<WGM00);// CONFIGURING FOR FAST PWM MODE
+    TCCR0B|=(1<<CS01)|(1<<CS00);// SETTING THE PRESCALER TO 64
+    DDRD|=(1<<DDD6);//CONFIGURING PIN D6
 
- /**
-     * @brief Infinite loop to run the microcontroller
-     * 
-     */
+ port();
+ InitADC();
+ USARTInit(103);
+
+ uint16_t temp;
+ timer();
  while(1)
-    {
-      if(BUTTON_SENSOR_ON) // Checking if the input bit to 0th bit of pinD is made 0 from 1 by pressing led
-      {
-        if(HEATER_ON) // Checking if the input bit to 1th bit of pinD is made 0 from 1 by pressing led
 
-      {
-         SET_LED;//make 0th bit of port B as 1, makes led glow
-         temp=Read_ADC(0);
-        _delay_ms(1000); // delay 
-      }
-        else
-      {
-         CLEAR_LED; // make led off
-         _delay_ms(1000);
-      }
+{
+    if(BUTTON_SENSOR_ON) //// Button Sensor ON
+   {
+       if(HEATER_ON)
+       {
 
-      else
-      {
-        CLEAR_LED// Make led off
+            SET_LED; //LED On
+           _delay_ms(1000);
+           temp=ReadADC(0);
+           PWM(temp);
+           serial();
+
+       }
+       else
+       {
+
+        CLEAR_LED;// LED OFF
+         OCR1A=0//makeing PWM Output is 0 if Switch is Off
         _delay_ms(1000);
 
-      }
-
+       }
     }
-    return 0;
-  }
-}
+   else
+   {
 
+      CLEAR_LED; //make led off
+      OCR1A=0//makeing PWM Output is 0 if Switch is Off
+     _delay_ms(1000);
+   }
+
+}
+{
+ // Do nothing
+}
+return 0;
+}
